@@ -42,7 +42,6 @@ router.post(
 
       await user.save();
 
-      // res.send('User saved');
       const payload = {
         user: {
           id: user.id
