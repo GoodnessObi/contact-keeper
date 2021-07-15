@@ -12,9 +12,9 @@ const User = require('../models/User');
 //@access  Public
 router.post(
   '/',
-    body('name', 'Please add name').not().isEmpty(),
-    body('email', 'Please include a valid email').isEmail(),
-    body('password', 'Please enter a password with 6 or more characters').isLength({ min: 6 }),
+  body('name', 'Please add name').not().isEmpty(),
+  body('email', 'Please include a valid email').isEmail(),
+  body('password', 'Please enter a password with 6 or more characters').isLength({ min: 6 }),
   async (req, res) => {
     const errors = validationResult(req);
     if(!errors.isEmpty()) {
@@ -59,6 +59,7 @@ router.post(
       console.error(err.message);
       res.status(500).send('Server error');
     }
-});
+  }
+);
 
 module.exports = router;
